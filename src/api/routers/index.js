@@ -2,7 +2,7 @@ import Router from "koa-router";
 import fs from "fs";
 import path from "path";
 import Debug from "debug";
-const debug = Debug("ngmb:routers");
+const debug = Debug("example:routers");
 
 const router = new Router();
 
@@ -24,6 +24,10 @@ const buildRoutesFromFiles = ({ routeFiles }) => {
 		const basename = path.basename(filePath, ".js");
 		try {
 			let { default: routes } = require(filePath);
+			if (!routes) {
+				debug(`build route: ${basename}/ build failed (${filePath})`);
+				return;
+			}
 			buildRoutes({ routes, basename });
 		} catch (error) {
 			throw error;

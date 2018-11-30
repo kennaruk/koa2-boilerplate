@@ -1,5 +1,5 @@
 import Debug from "debug";
-const debug = Debug("ngmb:routers:user");
+const debug = Debug("example:routers:example");
 
 async function middleware(ctx, next) {
 	debug("middleware");
