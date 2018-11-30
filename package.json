@@ -1,0 +1,33 @@
+{
+	"name": "gng-back-services",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "cross-env nodemon src/api/index.js --exec babel-node",
+		"prod": "cross-env PORT=9000 node dist/bin/www.js",
+		"build": "babel src/ -d dist",
+		"test": "echo \"run test\"",
+		"run": "npm run transpile && node dist/bin/www.js",
+		"lint": "eslint \"**/*.js\" -c .eslintrc.json -f checkstyle; exit 0"
+	},
+	"devDependencies": {
+		"@babel/cli": "7.0.0-beta.54",
+		"@babel/core": "7.0.0-beta.54",
+		"@babel/node": "7.0.0-beta.54",
+		"@babel/plugin-syntax-dynamic-import": "7.0.0-beta.54",
+		"@babel/preset-env": "7.0.0-beta.54"
+	},
+	"dependencies": {
+		"cross-env": "^5.2.0",
+		"debug": "^4.1.0",
+		"dotenv": "^6.1.0",
+		"fs": "^0.0.1-security",
+		"koa": "^2.0.0-alpha.8",
+		"koa-bodyparser": "^4.2.1",
+		"koa-logger": "^3.2.0",
+		"koa-router": "^7.4.0",
+		"koa-static": "^5.0.0",
+		"koa2-swagger-ui": "^2.11.6",
+		"mongoose": "^5.3.3"
+	}
+}

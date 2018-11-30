@@ -1,0 +1,9 @@
+{
+	"window.zoomLevel": 0,
+	"python.linting.pylintEnabled": false,
+	"eslint.packageManager": "yarn",
+	"editor.formatOnSave": true,
+	"prettier.useTabs": true,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4
+}

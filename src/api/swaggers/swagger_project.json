@@ -1,0 +1,85 @@
+{
+	"/projects": {
+		"get": {
+			"tags": ["Projects"],
+			"description": "The projects API.",
+			"summary": "Get all projects in the database.",
+			"parameters": [],
+			"produces": ["application/json"],
+			"responses": {
+				"200": {
+					"description": "Welcome to our Projects API! We have created the first Swagger-API"
+				}
+			}
+		},
+		"post": {
+			"tags": ["Projects"],
+			"description": "Create the new project.",
+			"summary": "Create the new project from user input.",
+			"parameters": [
+				{
+					"name": "id",
+					"in": "body",
+					"required": true,
+					"description": "Auto generate project-id",
+					"type": "string",
+					"schema": {
+						"$ref": "#/definitions/"
+					}
+				},
+				{
+					"name": "projectname",
+					"in": "body",
+					"description": "input project-name",
+					"schema": {
+						"$ref": "#/definitions/"
+					}
+				}
+			],
+			"produces": ["application/json"],
+			"responses": {
+				"200": {
+					"description": "New project is created"
+				}
+			}
+		}
+	},
+	"/projects/{projectId}": {
+		"get": {
+			"tags": ["Projects"],
+			"summary": "Get the specific project with their project-id",
+			"parameters": [
+				{
+					"name": "projectId",
+					"in": "path",
+					"required": true,
+					"description": "The ID that define the specific project inside the database",
+					"type": "string"
+				}
+			],
+			"responses": {
+				"200": {
+					"description": "The project has found!"
+				}
+			}
+		},
+		"delete": {
+			"tags": ["Projects"],
+			"summary": "Delete the specific project with their id",
+			"parameters": [
+				{
+					"name": "projectId",
+					"in": "path",
+					"required": true,
+					"description": "The ID that define the specific project inside the database",
+					"type": "string"
+				}
+			],
+			"response": {
+				"200": {
+					"description": "The project remove successfully!"
+				}
+			}
+		}
+	}
+}
