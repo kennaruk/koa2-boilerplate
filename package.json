@@ -3,10 +3,10 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "cross-env nodemon src/api/index.js --exec babel-node",
-		"prod": "cross-env PORT=9000 node dist/bin/www.js",
+		"dev": "cross-env NODE_ENV=development nodemon src/api/index.js --exec babel-node",
+		"prod": "cross-env NODE_ENV=production PORT=9000 node dist/bin/www.js",
 		"build": "babel src/ -d dist",
-		"test": "echo \"run test\"",
+		"test": "cross-env NODE_ENV=test mocha --compilers js:@babel/register --timeout 10000 src/tests/*.js",
 		"run": "npm run transpile && node dist/bin/www.js",
 		"lint": "eslint \"**/*.js\" -c .eslintrc.json -f checkstyle; exit 0"
 	},
@@ -14,6 +14,7 @@
 		"@babel/cli": "7.0.0-beta.54",
 		"@babel/core": "7.0.0-beta.54",
 		"@babel/node": "7.0.0-beta.54",
+		"@babel/register": "7.0.0-beta.54"
 		"@babel/plugin-syntax-dynamic-import": "7.0.0-beta.54",
 		"@babel/preset-env": "7.0.0-beta.54"
 	},
