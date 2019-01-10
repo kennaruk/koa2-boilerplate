@@ -15,7 +15,7 @@ module.exports = function(api) {
 		test: {
 			presets: [
 				[
-					"env",
+					"@babel/env",
 					{
 						modules: "commonjs"
 					}
